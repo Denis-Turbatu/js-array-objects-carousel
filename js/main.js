@@ -27,6 +27,7 @@ const images = [
 ];
 
 const buttonNextElem = document.querySelector(".my-next");
+const buttonPrevElem = document.querySelector(".my-previous");
 let indexCarousel = -1;
 let currentIndexCarousel = 0;
 
@@ -68,6 +69,16 @@ buttonNextElem.addEventListener("click", () => {
     currentIndexCarousel = 0;
   } else {
     currentIndexCarousel++;
+  }
+
+  aggiornaCarosello();
+});
+
+buttonPrevElem.addEventListener("click", () => {
+  if (currentIndexCarousel <= 0) {
+    currentIndexCarousel = images.length - 1;
+  } else {
+    currentIndexCarousel--;
   }
 
   aggiornaCarosello();
