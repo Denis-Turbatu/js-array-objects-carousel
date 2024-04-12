@@ -60,7 +60,7 @@ function aggiornaCarosello() {
   });
 }
 
-// Initial carousel display
+
 aggiornaCarosello();
 
 buttonNextElem.addEventListener("click", () => {
@@ -69,6 +69,6 @@ buttonNextElem.addEventListener("click", () => {
   } else {
     currentIndexCarousel++;
   }
-  
-  updateCarousel();
+
+  aggiornaCarosello();
 });
