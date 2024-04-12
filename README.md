@@ -24,15 +24,15 @@ Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 
 ### INPUT
 
-- [] Variabile per contare gli elementi del carosello
+- [X] Variabile per contare gli elementi del carosello
 
 ### ESECUZIONE LOGICA
 
-- [] Carosello dinamico
+- [X] Carosello dinamico
     - [X] Togliere HTML statico
     - [X] forEach che aggiunge tutti gli elementi HTML con dati relativi ad ogni gioco
-    - [] addEventListener per il click dei bottoni di scorrimento
-    - [] Click bottone destro aumenta il contatore degli elementi 
+    - [X] addEventListener per il click dei bottoni di scorrimento
+    - [X] Click bottone destro aumenta il contatore degli elementi 
     - [X] impostare un 'if' dove riceve come condizione il contatore e imposta la classe ".active" all'elemento corrente
 
 ### OUTPUT
