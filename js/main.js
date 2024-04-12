@@ -26,12 +26,18 @@ const images = [
   },
 ];
 
-let indexCarousel = 1;
+let indexCarousel = -1;
+let currentIndexCarousel = 0;
 
 images.forEach((currentImg) => {
   const sliderElem = document.querySelector(".my-carousel-images");
-  const slideElem = `
-      <div class="my-carousel-item active" carousel-item="${indexCarousel++}">
+  const slideElem = document.createElement("div");
+  slideElem.classList.add("my-carousel-item");
+  slideElem.setAttribute("carousel-item", indexCarousel++);
+  if (indexCarousel === currentIndexCarousel) {
+    slideElem.classList.add("active");
+  }
+  const slideContent = `
                   <img
                     class="img-fluid"
                     src="${currentImg.image}"
@@ -41,8 +47,9 @@ images.forEach((currentImg) => {
                     <h2>${currentImg.title}</h2>
                     <p>${currentImg.text}</p>
                   </div>
-                </div>
   `;
+  slideElem.innerHTML = slideContent;
   console.log(slideElem);
-  sliderElem.innerHTML += slideElem;
+  sliderElem.appendChild(slideElem);
 });
+
