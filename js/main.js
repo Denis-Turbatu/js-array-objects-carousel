@@ -28,41 +28,13 @@ const images = [
 
 const buttonNextElem = document.querySelector(".my-next");
 const buttonPrevElem = document.querySelector(".my-previous");
+const bottomSlider = document.querySelector(".my-thumbnails");
 let indexCarousel = -1;
 let currentIndexCarousel = 0;
+let indexBotImg = 0;
 
-function aggiornaCarosello() {
-  const sliderElem = document.querySelector(".my-carousel-images");
-  sliderElem.innerHTML = "";
-  indexCarousel = -1;
-
-  images.forEach((currentImg) => {
-    const slideElem = document.createElement("div");
-    slideElem.classList.add("my-carousel-item");
-    slideElem.setAttribute("carousel-item", indexCarousel++);
-
-    if (indexCarousel === currentIndexCarousel) {
-      slideElem.classList.add("active");
-    }
-
-    const slideContent = `
-      <img
-        class="img-fluid"
-        src="${currentImg.image}"
-        alt="${currentImg.title} picture"
-      />
-      <div class="item-description px-3">
-        <h2>${currentImg.title}</h2>
-        <p>${currentImg.text}</p>
-      </div>
-    `;
-    slideElem.innerHTML = slideContent;
-    sliderElem.appendChild(slideElem);
-  });
-}
-
-
-aggiornaCarosello();
+creaCarosello();
+creaThumbnail();
 
 buttonNextElem.addEventListener("click", () => {
   if (currentIndexCarousel === images.length - 1) {
@@ -71,7 +43,8 @@ buttonNextElem.addEventListener("click", () => {
     currentIndexCarousel++;
   }
 
-  aggiornaCarosello();
+  creaCarosello();
+  creaThumbnail();
 });
 
 buttonPrevElem.addEventListener("click", () => {
@@ -82,4 +55,5 @@ buttonPrevElem.addEventListener("click", () => {
   }
 
   aggiornaCarosello();
+  createThumbnail();
 });
