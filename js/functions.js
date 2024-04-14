@@ -26,7 +26,7 @@ function creaCarosello() {
     `;
     slideElem.innerHTML = slideContent;
     sliderElem.appendChild(slideElem);
-  });
+    });
 }
 
 function creaThumbnail() {
@@ -45,3 +45,18 @@ images.forEach((currentImg, index) => {
     bottomSlider.appendChild(slideBotElem);
 });
 }
+
+function automaticSlide(){
+    if (currentIndexCarousel > 4) {
+        currentIndexCarousel = 0;
+    }
+    if (indexBotImg > 4) {
+        indexBotImg = 0;
+    }
+    creaCarosello();
+    creaThumbnail(); 
+    currentIndexCarousel++;
+    indexBotImg++;
+    console.log(currentIndexCarousel);
+    console.log(indexBotImg);
+};

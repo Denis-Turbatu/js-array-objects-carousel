@@ -29,12 +29,28 @@ const images = [
 const buttonNextElem = document.querySelector(".my-next");
 const buttonPrevElem = document.querySelector(".my-previous");
 const bottomSlider = document.querySelector(".my-thumbnails");
+const stopBtn = document.getElementById("my-stop-button");
 let indexCarousel = -1;
 let currentIndexCarousel = 0;
 let indexBotImg = 0;
+let intervalId = 0;
+let isIntervalActive = false;
 
 creaCarosello();
 creaThumbnail();
+
+
+stopBtn.addEventListener("click", () => {
+  if (isIntervalActive) {
+    clearInterval(intervalId);
+    console.log("stop");
+    isIntervalActive = false;
+  }else {
+    intervalId = setInterval(automaticSlide, 3000);
+    console.log("riprendi");
+    isIntervalActive = true;
+  }
+});
 
 buttonNextElem.addEventListener("click", () => {
   if (currentIndexCarousel === images.length - 1) {
@@ -54,6 +70,6 @@ buttonPrevElem.addEventListener("click", () => {
     currentIndexCarousel--;
   }
 
-  aggiornaCarosello();
-  createThumbnail();
+  creaCarosello();
+  creaThumbnail();
 });
